@@ -1,0 +1,14 @@
+node_modules/
+.expo/
+coverage/
+dist/
+build/
+.env
+.env.*
+!.env.example
+
+# Expo-generated types and local tooling
+expo-env.d.ts
+.DS_Store
+.idea/
+.vscode/
