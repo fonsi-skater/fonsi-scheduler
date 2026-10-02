@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: { fontSize: typography.heading, fontWeight: "700" },
   emptyText: { marginTop: spacing.xs, textAlign: "center", lineHeight: 21, fontSize: typography.body },
-  skeleton: { height: 104, borderRadius: radius.md, marginBottom: spacing.sm, backgroundColor: "#EBE9F1" },
+  skeleton: { height: 104, borderRadius: radius.md, marginBottom: spacing.sm, backgroundColor: palette.line },
   fab: {
     position: "absolute",
     right: spacing.xl,

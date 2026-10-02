@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   },
   resultTitle: { fontSize: typography.heading, fontWeight: "700" },
   resultCount: { fontSize: typography.caption },
-  skeleton: { height: 108, backgroundColor: "#EBE9F1", borderRadius: radius.md },
+  skeleton: { height: 108, backgroundColor: palette.line, borderRadius: radius.md },
   messageBox: { minHeight: 100, alignItems: "center", justifyContent: "center" },
   messageText: { fontSize: typography.body, textAlign: "center", lineHeight: 22 },
   noResults: { minHeight: 140, alignItems: "center", justifyContent: "center", gap: spacing.sm }

@@ -1,4 +1,4 @@
-export type AppErrorKind = "network" | "notFound" | "validation" | "server" | "unknown";
+export type AppErrorKind = "network" | "notFound" | "validation" | "server" | "unauthorized" | "unknown";
 
 export class AppError extends Error {
   readonly kind: AppErrorKind;

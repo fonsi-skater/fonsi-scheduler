@@ -98,7 +98,7 @@ export default function TodayScreen() {
                       ? "You made it through your list. Lovely work."
                       : "One thing at a time. You've got this."}
                 </Text>
-                <View style={[styles.track, { backgroundColor: colors.dark ? "#414056" : "#EFEDF5" }]}>
+                <View style={[styles.track, { backgroundColor: colors.border }]}>
                   <View style={[styles.fill, { width: `${percentage * 100}%` }]} />
                 </View>
               </View>
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
   },
   offlineText: { flex: 1, color: palette.peachInk, fontSize: 11 },
   retryLink: { color: palette.peachInk, fontSize: 12, fontWeight: "700" },
-  skeleton: { height: 106, borderRadius: radius.md, marginBottom: spacing.sm, backgroundColor: "#EBE9F1" },
+  skeleton: { height: 106, borderRadius: radius.md, marginBottom: spacing.sm, backgroundColor: palette.line },
   empty: { alignItems: "center", paddingHorizontal: spacing.xl, paddingTop: spacing.xxxl },
   emptyIcon: {
     width: 56,

@@ -8,12 +8,14 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useEffect, useRef } from "react";
 
 import { useToast } from "@/store/toast";
+import { restoreAuthSession } from "@/store/authSession";
 import { palette, radius, spacing } from "@/theme";
 import { useAppColors } from "@/theme/useAppColors";
 import { useReducedMotion } from "@/theme/useReducedMotion";
 
 export default function RootLayout() {
   const colors = useAppColors();
+  const showToast = useToast((state) => state.show);
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -24,12 +26,21 @@ export default function RootLayout() {
       })
   );
   const reduceMotion = useReducedMotion();
+  useEffect(() => {
+    void restoreAuthSession().catch(() =>
+      showToast("We couldn't restore your sign-in. Please try signing in again.")
+    );
+  }, [showToast]);
   return (
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <StatusBar style={colors.dark ? "light" : "dark"} />
         <Stack screenOptions={{ headerShown: false, animation: reduceMotion ? "none" : "fade_from_bottom" }}>
           <Stack.Screen name="(tabs)" />
+          <Stack.Screen
+            name="login"
+            options={{ presentation: "modal", animation: reduceMotion ? "none" : "slide_from_bottom" }}
+          />
           <Stack.Screen
             name="task/new"
             options={{ presentation: "modal", animation: reduceMotion ? "none" : "slide_from_bottom" }}
@@ -75,7 +86,7 @@ function ToastBanner() {
         styles.toast,
         {
           bottom: Math.max(insets.bottom, spacing.md) + 64,
-          backgroundColor: colors.dark ? "#343148" : palette.ink,
+          backgroundColor: colors.dark ? palette.nightCard : palette.ink,
           opacity,
           transform: [
             {
@@ -117,5 +128,5 @@ const styles = StyleSheet.create({
   },
   toastText: { flex: 1, color: palette.white, fontSize: 14 },
   toastAction: { minHeight: 44, justifyContent: "center", paddingHorizontal: spacing.sm },
-  actionText: { color: "#C9C2FF", fontWeight: "700", fontSize: 13 }
+  actionText: { color: "#D8E2F0", fontWeight: "700", fontSize: 13 }
 });

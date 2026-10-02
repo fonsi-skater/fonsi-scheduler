@@ -16,7 +16,7 @@ Open the project with Expo Go or a simulator. Use `npm run web` for the browser 
 
 The demo adapter is enabled by default. Task edits in demo mode are in memory and reset when the app process restarts. To use a task service, set `EXPO_PUBLIC_USE_MOCK=false` and configure `EXPO_PUBLIC_API_URL`, then restart Expo. The HTTP adapter's expected task routes and payloads are documented in `src/api/client.ts` and `src/api/types.ts`; configuring this client does not change the separately deployed service.
 
-The app includes a real About screen at `/about`, reachable from the Settings tab. It is intended for product and release context, not for backend or service configuration.
+The Menu tab links to Settings, task search, About, and the sign-in screen. Sign-in and account creation use `/api/v1/auth/login` and `/api/v1/auth/register`; they require a configured service that implements those endpoints. They are intentionally unavailable in demo mode or when `EXPO_PUBLIC_API_URL` is missing. Native sessions use Expo SecureStore for token storage; browser-preview sessions last only until the page is refreshed.
 
 ## Validation
 
@@ -38,10 +38,10 @@ The current account and identity setup steps, verified store-account fee notes, 
 ## Project structure
 
 - `app/`: Expo Router tabs and task/search routes
-- `src/api/`: task types, HTTP and in-memory adapters, repository, and error handling
+- `src/api/`: task types, auth/task HTTP and in-memory adapters, repository, and error handling
 - `src/components/`: shared controls, task cards, and validated task form
 - `src/features/tasks/`: task validation, query hooks, reminders, and tests
-- `src/store/`: preferences and transient toast state
+- `src/store/`: preferences, auth session, and transient toast state
 - `src/theme/`: colors, spacing, typography, motion, and theme helpers
 - `assets/images/`: launcher, adaptive launcher, and splash assets
 - `assets/store/`: Google Play icon and feature graphic draft assets

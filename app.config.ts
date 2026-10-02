@@ -15,16 +15,17 @@ const config: ExpoConfig = {
     image: "./assets/images/splash.png",
     imageWidth: 160,
     resizeMode: "contain",
-    backgroundColor: "#F7F6FB"
+    backgroundColor: "#F7F8F5"
   },
   plugins: [
     "expo-router",
     [
       "expo-notifications",
       {
-        color: "#7867F5"
+        color: "#7887B8"
       }
     ],
+    "expo-secure-store",
     "expo-asset",
     "expo-font"
   ],
@@ -35,7 +36,7 @@ const config: ExpoConfig = {
     package: "com.fonsiflow.scheduler",
     adaptiveIcon: {
       foregroundImage: "./assets/images/adaptive-icon.png",
-      backgroundColor: "#7867F5"
+      backgroundColor: "#7887B8"
     },
     permissions: ["android.permission.POST_NOTIFICATIONS", "android.permission.SCHEDULE_EXACT_ALARM"]
   },

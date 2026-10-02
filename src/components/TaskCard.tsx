@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     height: 21,
     borderRadius: 11,
     borderWidth: 1.5,
-    borderColor: "#D1CFDD",
+    borderColor: palette.line,
     alignItems: "center",
     justifyContent: "center"
   },
