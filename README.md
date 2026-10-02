@@ -31,7 +31,9 @@ npm run format:check
 
 `app.config.ts` is the source of truth for the app's Expo, Android, and iOS identifiers and its launcher/splash assets. It carries forward the existing identifiers (`com.fonsiflow.scheduler` on both stores, Expo slug `fonsi-scheduler`, URL scheme `fonsi`). Treat the bundle ID and Android package as provisional until the publisher verifies ownership and checks for existing store listings; do not create a store record or production build before that check.
 
-The current account and identity setup steps, verified store-account fee notes, and manual enrollment steps are in [Phase 1 — accounts and app identity](docs/release/phase-1-accounts-and-identity.md). Store requirements and fees can change; the linked official pages and live enrollment forms take precedence.
+The current account and identity setup steps, verified store-account fee notes, and manual enrollment steps are in [Phase 1 — accounts and app identity](docs/release/phase-1-accounts-and-identity.md). EAS build profiles, signing, push credentials, store assets/listing drafts, and the current privacy launch gate are in [Phases 2–5 — release readiness](docs/release/phase-2-5-release-readiness.md). The [privacy policy draft](docs/release/privacy-policy-draft.md) is not approved or ready to publish. Store requirements and fees can change; the linked official pages and live enrollment forms take precedence.
+
+`eas.json` includes development, preview, and production build profiles. EAS must be linked to the publisher's project and populated with verified environment URLs before cloud builds. No production build or submission should be started until the account-deletion/privacy gate documented in the release-readiness guide is resolved.
 
 ## Project structure
 
@@ -42,6 +44,7 @@ The current account and identity setup steps, verified store-account fee notes, 
 - `src/store/`: preferences and transient toast state
 - `src/theme/`: colors, spacing, typography, motion, and theme helpers
 - `assets/images/`: launcher, adaptive launcher, and splash assets
+- `assets/store/`: Google Play icon and feature graphic draft assets
 - `docs/release/`: store release planning and account setup
 
 ## Scope

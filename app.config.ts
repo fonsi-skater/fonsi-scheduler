@@ -5,6 +5,9 @@ const config: ExpoConfig = {
   slug: "fonsi-scheduler",
   scheme: "fonsi",
   version: "1.0.0",
+  runtimeVersion: {
+    policy: "fingerprint"
+  },
   orientation: "portrait",
   userInterfaceStyle: "automatic",
   icon: "./assets/images/icon.png",
