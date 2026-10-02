@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Alert, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
 
 import { usePreferences, type Appearance } from "@/store/preferences";
 import { useToast } from "@/store/toast";
@@ -34,6 +35,7 @@ const reminders = [
 
 export default function SettingsScreen() {
   const colors = useAppColors();
+  const router = useRouter();
   const [requesting, setRequesting] = useState(false);
   const appearance = usePreferences((state) => state.appearance);
   const notificationsEnabled = usePreferences((state) => state.notificationsEnabled);
@@ -180,6 +182,16 @@ export default function SettingsScreen() {
             </Text>
           </View>
         </View>
+
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push("/about")}
+          style={[styles.aboutButton, { backgroundColor: colors.surface, borderColor: colors.border }]}
+        >
+          <Ionicons name="information-circle-outline" size={18} color={palette.violet} />
+          <Text style={[styles.aboutButtonText, { color: colors.text }]}>About Fonsi Scheduler</Text>
+        </Pressable>
+
         <Text style={[styles.version, { color: colors.mutedText }]}>
           Fonsi Scheduler · Made for your focus
         </Text>
@@ -268,5 +280,16 @@ const styles = StyleSheet.create({
     backgroundColor: palette.violetWash,
     marginRight: spacing.sm
   },
+  aboutButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: spacing.xs,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: radius.md,
+    paddingVertical: spacing.md,
+    marginTop: spacing.lg
+  },
+  aboutButtonText: { fontSize: typography.body, fontWeight: "600" },
   version: { textAlign: "center", marginTop: spacing.xxl, fontSize: typography.caption }
 });

@@ -16,6 +16,8 @@ Open the project with Expo Go or a simulator. Use `npm run web` for the browser 
 
 The demo adapter is enabled by default. Task edits in demo mode are in memory and reset when the app process restarts. To use a task service, set `EXPO_PUBLIC_USE_MOCK=false` and configure `EXPO_PUBLIC_API_URL`, then restart Expo. The HTTP adapter's expected task routes and payloads are documented in `src/api/client.ts` and `src/api/types.ts`; configuring this client does not change the separately deployed service.
 
+The app includes a real About screen at `/about`, reachable from the Settings tab. It is intended for product and release context, not for backend or service configuration.
+
 ## Validation
 
 ```powershell
