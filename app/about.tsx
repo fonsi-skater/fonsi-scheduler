@@ -30,8 +30,8 @@ export default function AboutScreen() {
         <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <Text style={[styles.cardTitle, { color: colors.text }]}>What this app does</Text>
           <Text style={[styles.cardText, { color: colors.mutedText }]}>
-            Fonsi Scheduler helps you track tasks, review today and upcoming work, and adjust
-            reminders to match your rhythm.
+            Fonsi Scheduler helps you track tasks, review today and upcoming work, and adjust reminders to
+            match your rhythm.
           </Text>
         </View>
 
@@ -46,9 +46,8 @@ export default function AboutScreen() {
         <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <Text style={[styles.cardTitle, { color: colors.text }]}>Current status</Text>
           <Text style={[styles.cardText, { color: colors.mutedText }]}>
-            This repository contains the mobile app and its release configuration. The backend is a
-            separately deployed service, and the app will use the configured API URL when the service is
-            connected.
+            This repository contains the mobile app and its release configuration. The backend is a separately
+            deployed service, and the app will use the configured API URL when the service is connected.
           </Text>
         </View>
       </ScrollView>
